@@ -9,9 +9,9 @@ import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
 function App() {
   return (
     <div>
-      {/* <ButtonAppBar /> */}
-      {/* <TemporaryDrawer /> */}
-      <PersistentDrawerLeft />
+      <ButtonAppBar />
+      <TemporaryDrawer />
+      {/* <PersistentDrawerLeft /> */}
     </div>
   );
 }
