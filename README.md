@@ -74,3 +74,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<br>
+
+### Backend
+- Jersey 2.x with grizzly for microservice
+- Mybatis for Orm 
+- JUnit4 and embedded mysql for testing 
+
