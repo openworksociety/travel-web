@@ -8,6 +8,7 @@ import Login from "./components/pages/Login";
 import Search from "./components/pages/Search";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
+import Signup from "./components/pages/Signup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/about" component={About}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/signup" component={Signup}></Route>
         </Switch>
       </Container>
     </BrowserRouter>
