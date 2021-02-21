@@ -1,4 +1,4 @@
-Issue Tracker : https://thecodeworld.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=TA&selectedIssue=TA-1#
+This link is deprecated now -> Issue Tracker : https://thecodeworld.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=TA&selectedIssue=TA-1#
 
 # Getting Started with Create React App
 
