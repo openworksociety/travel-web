@@ -1,4 +1,9 @@
-This link is deprecated now -> Issue Tracker : https://thecodeworld.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=TA&selectedIssue=TA-1#
+# Feature branch creation tips:
+  Please use TW as prefix to branch name which is short form of repository name. (i.e TW - Travel-Web)
+  Then create Pull request to merge your branch changes into master.
+ 
+ *Important : Please don't merge the branches directly into master or don't commit anything directly on master.
+ 
 
 # Getting Started with Create React App
 
