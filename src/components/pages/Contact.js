@@ -7,6 +7,12 @@ function Contact() {
       <Box py={20} textAlign="center">
         <Typography variant="h1">Contact Page !!</Typography>
       </Box>
+      <Box py={20} textAlign="center">
+        <Typography variant="h1">Contact Page !!</Typography>
+      </Box>
+      <Box py={20} textAlign="center">
+        <Typography variant="h1">Contact Page !!</Typography>
+      </Box>
     </div>
   );
 }
