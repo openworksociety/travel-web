@@ -49,6 +49,7 @@ function Navigation() {
       keepMounted
       open={isMobileMenuOpen}
     >
+      <MenuItem />
       <MenuItem component={Link} to="/" onClick={closeMobileMenu}>
         Home
       </MenuItem>
