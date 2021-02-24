@@ -1,7 +1,7 @@
 import "./App.css";
-import { React } from "react";
+import React from 'react'
 import Navigation from "./components/layout/Navigation";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from 'react-router-dom' ;
 import { Container, makeStyles } from "@material-ui/core";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
