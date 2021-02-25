@@ -15,10 +15,11 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import PeopleIcon from "@material-ui/icons/People";
 import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
 import BarChartIcon from "@material-ui/icons/BarChart";
-import ProfilePage from "./dashboard/Profile";
-import EmployeesPage from "./dashboard/Employees";
-import ExpensesPage from "./dashboard/Expenses";
-import ReportsPage from "./dashboard/Reports";
+import ProfilePage from "./pages/Profile";
+import EmployeesPage from "./pages/Employees";
+import ExpensesPage from "./pages/Expenses";
+import ReportsPage from "./pages/Reports";
+import MasterdataPage from "./pages/Masterdata";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -37,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const PROFILE_VIEW = "PROFILE";
+const EMPLOYEES_VIEW = "EMPLOYEES";
+const EXPENSES_VIEW = "EXPENSES";
+const REPORTS_VIEW = "REPORTS";
+const MASTERDATA_VIEW = "MASTERDATA";
+
 function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -45,13 +52,43 @@ function Dashboard() {
   const [employees, setEmployees] = useState(false);
   const [expense, setExpense] = useState(false);
   const [report, setReport] = useState(false);
+  const [masterdata, setMasterdata] = useState(false);
 
-  function showComponent(showProfile, showEmployees, showexpense, showreport) {
-    setProfile(showProfile);
-    setEmployees(showEmployees);
-    setExpense(showexpense);
-    setReport(showreport);
+  function showHideView(selectedView) {
+    switch (selectedView) {
+      case PROFILE_VIEW:
+        hideAllView();
+        setProfile(true);
+        break;
+      case EMPLOYEES_VIEW:
+        hideAllView();
+        setEmployees(true);
+        break;
+      case EXPENSES_VIEW:
+        hideAllView();
+        setExpense(true);
+        break;
+      case REPORTS_VIEW:
+        hideAllView();
+        setReport(true);
+        break;
+      case MASTERDATA_VIEW:
+        hideAllView();
+        setMasterdata(true);
+        break;
+      default:
+        break;
+    }
   }
+
+  function hideAllView() {
+    setProfile(false);
+    setEmployees(false);
+    setExpense(false);
+    setReport(false);
+    setMasterdata(false);
+  }
+
   return (
     <div>
       <CssBaseline />
@@ -62,7 +99,8 @@ function Dashboard() {
             button
             onClick={() => {
               setOpen(false);
-              showComponent(true, false, false, false);
+              // showComponent(true, false, false, false);
+              showHideView(PROFILE_VIEW);
             }}
           >
             <ListItemIcon>
@@ -74,7 +112,8 @@ function Dashboard() {
             button
             onClick={() => {
               setOpen(false);
-              showComponent(false, true, false, false);
+              // showComponent(false, true, false, false);
+              showHideView(EMPLOYEES_VIEW);
             }}
           >
             <ListItemIcon>
@@ -86,7 +125,8 @@ function Dashboard() {
             button
             onClick={() => {
               setOpen(false);
-              showComponent(false, false, true, false);
+              // showComponent(false, false, true, false);
+              showHideView(EXPENSES_VIEW);
             }}
           >
             <ListItemIcon>
@@ -98,13 +138,27 @@ function Dashboard() {
             button
             onClick={() => {
               setOpen(false);
-              showComponent(false, false, false, true);
+              // showComponent(false, false, false, true);
+              showHideView(REPORTS_VIEW);
             }}
           >
             <ListItemIcon>
               <BarChartIcon />
             </ListItemIcon>
             <ListItemText primary="Report" />
+          </ListItem>
+          <ListItem
+            button
+            onClick={() => {
+              setOpen(false);
+              // showComponent(false, false, false, true);
+              showHideView(MASTERDATA_VIEW);
+            }}
+          >
+            <ListItemIcon>
+              <BarChartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Masterdata" />
           </ListItem>
         </List>
       </Drawer>
@@ -124,6 +178,7 @@ function Dashboard() {
         {employees && <EmployeesPage />}
         {expense && <ExpensesPage />}
         {report && <ReportsPage />}
+        {masterdata && <MasterdataPage />}
       </main>
     </div>
   );

@@ -1,17 +1,17 @@
 import "./App.css";
 import React from 'react'
-import Navigation from "./components/layout/Navigation";
+import Navigation from "./modules/common/navigation/Navigation";
 import { BrowserRouter, Route, Switch } from 'react-router-dom' ;
 import { Container, makeStyles } from "@material-ui/core";
-import Home from "./components/pages/Home";
-import Login from "./components/pages/Login";
-import Search from "./components/pages/Search";
-import About from "./components/pages/About";
-import Contact from "./components/pages/Contact";
-import Signup from "./components/pages/Signup";
+import Home from "./modules/home/Home";
+import Login from "./modules/login/Login";
+import Search from "./modules/search/Search";
+import About from "./modules/about/About";
+import Contact from "./modules/contact/Contact";
+import Signup from "./modules/signup/Signup";
 import AppBackground from "./resources/images/solo-traveller.jpg";
 import classNames from "classnames";
-import Dashboard from "./components/pages/Dashboard";
+import Dashboard from "./modules/dashboard/Dashboard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
