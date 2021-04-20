@@ -6,7 +6,6 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import React from "react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,7 +14,7 @@ import { Fragment, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   appBarStyle: {
-    zIndex: 1401,
+    zIndex: theme.zIndex.drawer + 1,
   },
   sectionDesktop: {
     display: "none",
@@ -31,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navigation() {
+function AppNavigation() {
   const classes = useStyles();
   const [mobileMenuAchorEl, setmobileMenuAchorEl] = useState(null);
   const isMobileMenuOpen = Boolean(mobileMenuAchorEl);
@@ -53,20 +52,23 @@ function Navigation() {
       <MenuItem component={Link} to="/" onClick={closeMobileMenu}>
         Home
       </MenuItem>
-      <MenuItem component={Link} to="/dashboard" onClick={closeMobileMenu}>
-        Dashboard
+      <MenuItem component={Link} to="/booking" onClick={closeMobileMenu}>
+        Booking
       </MenuItem>
-      <MenuItem component={Link} to="/search" onClick={closeMobileMenu}>
-        Search
+      <MenuItem component={Link} to="/agency" onClick={closeMobileMenu}>
+        Agency
+      </MenuItem>
+      <MenuItem component={Link} to="/account" onClick={closeMobileMenu}>
+        Account
+      </MenuItem>
+      <MenuItem component={Link} to="/employee" onClick={closeMobileMenu}>
+        Employee
+      </MenuItem>
+      <MenuItem component={Link} to="/businfo" onClick={closeMobileMenu}>
+        Bus Info
       </MenuItem>
       <MenuItem component={Link} to="/about" onClick={closeMobileMenu}>
         About
-      </MenuItem>
-      <MenuItem component={Link} to="/contact" onClick={closeMobileMenu}>
-        Contact
-      </MenuItem>
-      <MenuItem component={Link} to="/login" onClick={closeMobileMenu}>
-        Login
       </MenuItem>
     </Menu>
   );
@@ -77,29 +79,31 @@ function Navigation() {
         position="fixed"
         className={classes.appBarStyle}
       >
-        {/* <AppBar position="static" color="secondary"> */}
-        <Toolbar>
+        <Toolbar variant="dense">
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Travel Web
+            Travel Business
           </Typography>
           <div className={classes.sectionDesktop}>
             <Button color="inherit" component={Link} to="/">
               Home
             </Button>
-            <Button color="inherit" component={Link} to="/dashboard">
-              Dashboard
+            <Button color="inherit" component={Link} to="/booking">
+              Booking
             </Button>
-            <Button color="inherit" component={Link} to="/search">
-              Search
+            <Button color="inherit" component={Link} to="/agency">
+              Agency
+            </Button>
+            <Button color="inherit" component={Link} to="/account">
+              Account
+            </Button>
+            <Button color="inherit" component={Link} to="/employee">
+              Employee
+            </Button>
+            <Button color="inherit" component={Link} to="/businfo">
+              Bus Info
             </Button>
             <Button color="inherit" component={Link} to="/about">
               About
-            </Button>
-            <Button color="inherit" component={Link} to="/contact">
-              Contact
-            </Button>
-            <Button color="inherit" component={Link} to="/login">
-              Login
             </Button>
           </div>
           <IconButton
@@ -116,4 +120,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default AppNavigation;
