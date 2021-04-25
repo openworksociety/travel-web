@@ -13,6 +13,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PropTypes from "prop-types";
 import Box from "@material-ui/core/Box";
+import RestAPITest from "../apitest/RestAPITest";
 
 const drawerWidth = 200;
 
@@ -210,6 +211,7 @@ function HomeView() {
             </TabPanel>
             <TabPanel value={value} index={1}>
               Agency Page
+              <RestAPITest />
             </TabPanel>
             <TabPanel value={value} index={2}>
               Employee Page

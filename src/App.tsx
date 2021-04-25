@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const rootClass = classNames(classes.root, classes.bgImage);
+ // const rootClass = classNames(classes.root, classes.bgImage);
   return (
     <BrowserRouter>
       {/* <Container className={rootClass}> */}

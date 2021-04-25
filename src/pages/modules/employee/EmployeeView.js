@@ -13,6 +13,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PropTypes from "prop-types";
 import Box from "@material-ui/core/Box";
+import EmployeeDashboard from "./views/EmployeeDashboard";
 
 const drawerWidth = 200;
 
@@ -189,7 +190,7 @@ function EmployeeView() {
               aria-label="Vertical tabs example"
               className={classes.tabsroot}
             >
-              <Tab label="Page1" {...a11yProps(0)} />
+              <Tab label="Dashboard" {...a11yProps(0)} />
               <Tab label="Page2" {...a11yProps(1)} />
               <Tab label="Page3" {...a11yProps(2)} />
               <Tab label="Page4" {...a11yProps(3)} />
@@ -206,7 +207,7 @@ function EmployeeView() {
             })}
           >
             <TabPanel value={value} index={0} spacing={2}>
-              Page 1
+              <EmployeeDashboard />
             </TabPanel>
             <TabPanel value={value} index={1}>
               Page 2
