@@ -1,3 +1,11 @@
+# Feature branch creation tips:
+  Please use "TW" as prefix to branch name which is short form of repository name. (i.e TW - Travel-Web)
+      e.g If there is issue with ID #5 then create your branch like TW-#5
+  Then create Pull request to merge your branch changes into master.
+ 
+ *Important : Please don't merge the branches directly into master or don't commit anything directly on master.
+ 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +13,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+Download all the dependent module please use
+
+### `npm install`
+
+then
 
 ### `npm start`
 
@@ -68,3 +82,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### UI 
+![image](https://user-images.githubusercontent.com/79397385/115344917-aabedc00-a1cb-11eb-8548-28af2c2a1c83.png)
+
