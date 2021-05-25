@@ -56,20 +56,20 @@ export class EmpTypeGrid extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  componentDidMount() {
-    fetch("http://localhost:8080/identitytype/findAll")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            rows: result,
-          });
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:8080/identitytype/findAll")
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         this.setState({
+  //           rows: result,
+  //         });
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   handleCreateClick(e) {
     this.setState({ open: true });

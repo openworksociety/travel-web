@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Fragment, useState } from "react";
+import { useHistory } from "react-router-dom";
+import AuthService from "../../service/Authentication.service";
 
 const useStyles = makeStyles((theme) => ({
   appBarStyle: {
@@ -30,16 +32,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AppNavigation() {
+function AppNavigation(props) {
   const classes = useStyles();
+  //const history = useHistory();
   const [mobileMenuAchorEl, setmobileMenuAchorEl] = useState(null);
   const isMobileMenuOpen = Boolean(mobileMenuAchorEl);
+
+  const user = AuthService.getCurrentUser();
 
   const openMobileMenu = (event) => {
     setmobileMenuAchorEl(event.currentTarget);
   };
   const closeMobileMenu = () => {
     setmobileMenuAchorEl(null);
+  };
+  const onLogout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/";
+    // history.push("/");
+    // window.location.reload();
   };
   const mobileMenu = (
     <Menu
@@ -48,8 +59,7 @@ function AppNavigation() {
       keepMounted
       open={isMobileMenuOpen}
     >
-      <MenuItem />
-      <MenuItem component={Link} to="/" onClick={closeMobileMenu}>
+      <MenuItem component={Link} to="/home" onClick={closeMobileMenu}>
         Home
       </MenuItem>
       <MenuItem component={Link} to="/booking" onClick={closeMobileMenu}>
@@ -70,6 +80,9 @@ function AppNavigation() {
       <MenuItem component={Link} to="/about" onClick={closeMobileMenu}>
         About
       </MenuItem>
+      <MenuItem component={Link} to="/" onClick={closeMobileMenu}>
+        Logout
+      </MenuItem>
     </Menu>
   );
   return (
@@ -84,7 +97,7 @@ function AppNavigation() {
             Travel Business
           </Typography>
           <div className={classes.sectionDesktop}>
-            <Button color="inherit" component={Link} to="/">
+            <Button color="inherit" component={Link} to="/home">
               Home
             </Button>
             <Button color="inherit" component={Link} to="/booking">
@@ -105,17 +118,22 @@ function AppNavigation() {
             <Button color="inherit" component={Link} to="/about">
               About
             </Button>
+            <Button color="inherit" component={Link} to="/" onClick={onLogout}>
+              Logout
+            </Button>
           </div>
-          <IconButton
-            color="inherit"
-            onClick={openMobileMenu}
-            className={classes.mobileMenu}
-          >
-            <MoreIcon />
-          </IconButton>
+          {user && (
+            <IconButton
+              color="inherit"
+              onClick={openMobileMenu}
+              className={classes.mobileMenu}
+            >
+              <MoreIcon />
+            </IconButton>
+          )}
         </Toolbar>
       </AppBar>
-      {mobileMenu}
+      {user && mobileMenu}
     </Fragment>
   );
 }

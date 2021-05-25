@@ -12,6 +12,10 @@ import AccountView from "./pages/modules/account/AccountView";
 import EmployeeView from "./pages/modules/employee/EmployeeView";
 import BusInfoView from "./pages/modules/businfo/BusInfoView";
 import AboutView from "./pages/modules/other/AboutView";
+import Login from "./pages/modules/login/Login";
+import Signup from "./pages/modules/login/Signup";
+
+import AuthService from "./service/Authentication.service";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,19 +37,24 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
  // const rootClass = classNames(classes.root, classes.bgImage);
+ const user = AuthService.getCurrentUser();
+
   return (
     <BrowserRouter>
       {/* <Container className={rootClass}> */}
-      <AppNavigation/>
+
+      {user && <AppNavigation/> }
       <Container disableGutters> 
         <Switch>
-          <Route exact path="/" component={HomeView}></Route>
-          <Route exact path="/booking" component={BookingView}></Route>
-          <Route exact path="/agency" component={AgencyView}></Route>
-          <Route exact path="/account" component={AccountView}></Route>
-          <Route exact path="/employee" component={EmployeeView}></Route>
-          <Route exact path="/businfo" component={BusInfoView}></Route>
-          <Route exact path="/about" component={AboutView}></Route>
+          <Route exact path="/" component={Login}></Route>
+          {user && <Route exact path="/home" component={HomeView}></Route>}
+          {user && <Route exact path="/booking" component={BookingView}></Route>}
+          {user && <Route exact path="/agency" component={AgencyView}></Route>}
+          {user &&  <Route exact path="/account" component={AccountView}></Route>}
+          {user && <Route exact path="/employee" component={EmployeeView}></Route>}
+          {user &&  <Route exact path="/businfo" component={BusInfoView}></Route>}
+          {user &&  <Route exact path="/about" component={AboutView}></Route>}
+          <Route exact path="/signup" component={Signup}></Route>
         </Switch>
       </Container>
     </BrowserRouter>
